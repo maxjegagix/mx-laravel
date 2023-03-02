@@ -25,18 +25,18 @@ class UserRolePermissionSeeder extends Seeder
         DB::beginTransaction();
         try {
             $superadmin = User::create(array_merge([
-                'name' => 'superadmin@gmail.com',
-                'email' => 'superadmin',
+                'name' => 'superadmin',
+                'email' => 'superadmin@gmail.com',
             ], $default_user_value));
     
             $admin = User::create(array_merge([
-                'name' => 'admin@gmail.com',
-                'email' => 'admin',
+                'name' => 'admin',
+                'email' => 'admin@gmail.com',
             ], $default_user_value));
     
             $user = User::create(array_merge([
-                'name' => 'user@gmail.com',
-                'email' => 'user',
+                'name' => 'user',
+                'email' => 'user@gmail.com',
             ], $default_user_value));
     
             $role_superadmin = Role::create(['name' => 'superadmin']);
