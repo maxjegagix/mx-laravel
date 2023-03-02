@@ -5,7 +5,8 @@ namespace Modules\Roles\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Permission;
 
 class RolesController extends Controller
 {
@@ -15,8 +16,6 @@ class RolesController extends Controller
      */
     public function index()
     {
-        $role = Role::find(1);
-        dd($role);
         return view('roles::index');
     }
 

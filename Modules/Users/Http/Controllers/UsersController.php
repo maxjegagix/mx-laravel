@@ -4,7 +4,13 @@ namespace Modules\Users\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Auth\Access\Response;
 use Illuminate\Routing\Controller;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Gate;
 
 class UsersController extends Controller
 {
@@ -14,7 +20,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-
+        if (! Gate::allows('CANUPDATE1')) {
+            abort(403,'TIDAK PUNYA AKSES');
+        }
         return view('users::index');
     }
 
@@ -77,4 +85,6 @@ class UsersController extends Controller
     {
         //
     }
+
+
 }

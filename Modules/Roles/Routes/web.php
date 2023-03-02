@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('roles')->group(function() {
+Route::group(['prefix' => 'roles',  'middleware' => 'auth'], function() {
     Route::get('/', 'RolesController@index');
 });

@@ -16,6 +16,13 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                @foreach(Module::getByStatus(1) as $modul)
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="(Request::segment(2)) ? '/' . $modul->getName() . str_replace(Request::segment(1), '', Request::path()) : '/' . strtolower($modul->getName()) . '/'" :active="request()->routeIs($modul->getName())">
+                            {{ $modul->getName() }}
+                        </x-nav-link>
+                    </div>
+                @endforeach
             </div>
 
             <!-- Settings Dropdown -->
